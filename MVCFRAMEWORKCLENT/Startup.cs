@@ -1,8 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IdentityModel.Tokens;
+using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Extensions;
 using Microsoft.Owin.Security.Cookies;
+using Microsoft.Owin.Security.OpenIdConnect;
 using Owin;
+using System.Net;
+using Microsoft.Owin.Security;
 
 [assembly: OwinStartupAttribute(typeof(MVCFRAMEWORKCLENT.Startup))]
 namespace MVCFRAMEWORKCLENT
@@ -12,27 +18,23 @@ namespace MVCFRAMEWORKCLENT
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
-            //app.UseCookieAuthentication(new CookieAuthenticationOptions()
-            //{
-            //    AuthenticationType = "Cookies",
-            //    ExpireTimeSpan = TimeSpan.FromMinutes(10),
-            //    SlidingExpiration = true
-            //});
+            JwtSecurityTokenHandler.InboundClaimTypeMap = new Dictionary<string, string>();
 
-            //JwtSecurityTokenHandler.InboundClaimTypeMap.Clear();
+            app.UseCookieAuthentication(new CookieAuthenticationOptions
+            {
+                AuthenticationType = "Cookies"
+            });
 
-            //app.UseOpenIdConnectAuthentication(new OpenIdConnectAuthenticationOptions
-            //{
-            //    AuthenticationType = "oidc",
-            //    SignInAsAuthenticationType = "Cookies",
-            //    Authority = "http://localhost:5000/",
-            //    RedirectUri = "http://localhost:5002/signin-oidc",
-            //    ClientId = "mvc",
-            //    ResponseType = "id_token",
-            //    Scope = "openid profile",
-            //    UseTokenLifetime = false
-            //});
-            //app.UseStageMarker(PipelineStage.Authenticate);
+            app.UseOpenIdConnectAuthentication(new OpenIdConnectAuthenticationOptions
+            {
+                ClientId = "implicit",
+                Authority = "https://demo.identityserver.io/",
+                RedirectUri = "https://localhost:64440/signin-oidc",
+
+
+                UseTokenLifetime = false,
+                SignInAsAuthenticationType = "Cookies",
+            });
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using IdentityServer4;
 using IdentityServer4.Models;
@@ -40,7 +41,7 @@ namespace IdentityServer.Infrastructure
                 new Client
                 {
                     ClientId = "mvc",
-                    ClientName = "MVCCORE Client",
+                    ClientName = "MVC Client",
                     AllowedGrantTypes = GrantTypes.Implicit,
 
                     // where to redirect to after login
@@ -50,11 +51,35 @@ namespace IdentityServer.Infrastructure
                     PostLogoutRedirectUris = { "http://localhost:51383/signout-callback-oidc" },
 
                     AllowedScopes = new List<string>
-                    {
+                     {
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile
-                    }
-                }
+                     }
+                    },
+                new Client
+                {
+                    ClientId = "mvc2",
+                    ClientName = "MVC Client",
+                    AllowedGrantTypes = GrantTypes.HybridAndClientCredentials,
+
+                    ClientSecrets =
+                    {
+                        new Secret("secret".Sha256())
+                    },
+                    // where to redirect to after login
+                    RedirectUris = { "http://localhost:51383/signin-oidc" },
+
+                    // where to redirect to after logout
+                    PostLogoutRedirectUris = { "http://localhost:51383/signout-callback-oidc" },
+
+                    AllowedScopes = new List<string>
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "api1"
+                    },
+                    AllowOfflineAccess = true
+                },
             };
         }
         public static List<TestUser> GetUsers()
@@ -65,7 +90,12 @@ namespace IdentityServer.Infrastructure
                 {
                     SubjectId = "1",
                     Username = "alice",
-                    Password = "password"
+                    Password = "password",
+                    Claims = new []
+                    {
+                        new Claim("name", "Alice"),
+                        new Claim("website", "https://alice.com")
+                    }
                 },
                 new TestUser
                 {

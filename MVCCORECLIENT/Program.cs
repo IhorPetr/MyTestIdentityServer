@@ -13,7 +13,7 @@ namespace MVCCORECLIENT
         {
             Console.Title = "MVCCoreClient";
             var host = new WebHostBuilder()
-                .UseKestrel().UseUrls("http://localhost:5002")
+                .UseKestrel().UseUrls("https://localhost:44368/")
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
                 .UseStartup<Startup>()

@@ -35,7 +35,15 @@ namespace IdentityServer
                 app.UseDeveloperExceptionPage();
             }
             app.UseIdentityServer();
+            app.UseGoogleAuthentication(new GoogleOptions
+            {
+                AuthenticationScheme = "Google",
+                DisplayName = "Google",
+                SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme,
 
+                ClientId = "12075986522-bjiirdv7rlhj38rpsaap8osaag608urg.apps.googleusercontent.com",
+                ClientSecret = "ynANLvuOiJI1LEZHzK572-xA"
+            });
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
         }
