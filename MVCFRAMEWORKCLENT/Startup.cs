@@ -17,7 +17,6 @@ namespace MVCFRAMEWORKCLENT
     {
         public void Configuration(IAppBuilder app)
         {
-            ConfigureAuth(app);
             JwtSecurityTokenHandler.InboundClaimTypeMap = new Dictionary<string, string>();
 
             app.UseCookieAuthentication(new CookieAuthenticationOptions
@@ -27,14 +26,16 @@ namespace MVCFRAMEWORKCLENT
 
             app.UseOpenIdConnectAuthentication(new OpenIdConnectAuthenticationOptions
             {
-                ClientId = "implicit",
-                Authority = "https://demo.identityserver.io/",
-                RedirectUri = "https://localhost:64440/signin-oidc",
-
-
+                ClientId = "mvc2",
+                ClientSecret = "secret",
+                AuthenticationType = "oidc",
+                Authority = "http://localhost:5000",
+                RedirectUri = "http://localhost:64440/signin-oidc",
+               ResponseType = "code id_token",
                 UseTokenLifetime = false,
                 SignInAsAuthenticationType = "Cookies",
             });
+            ConfigureAuth(app);
         }
     }
 }

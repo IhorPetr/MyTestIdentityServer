@@ -67,10 +67,10 @@ namespace IdentityServer.Infrastructure
                         new Secret("secret".Sha256())
                     },
                     // where to redirect to after login
-                    RedirectUris = { "http://localhost:51383/signin-oidc" },
+                    RedirectUris = { "http://localhost:64440/signin-oidc" },
 
                     // where to redirect to after logout
-                    PostLogoutRedirectUris = { "http://localhost:51383/signout-callback-oidc" },
+                    PostLogoutRedirectUris = { "http://localhost:64440" },
 
                     AllowedScopes = new List<string>
                     {
