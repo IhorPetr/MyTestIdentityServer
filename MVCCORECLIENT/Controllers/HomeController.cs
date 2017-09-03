@@ -47,10 +47,23 @@ namespace MVCCORECLIENT.Controllers
             ViewBag.Json = JArray.Parse(content).ToString();
             return View("json");
         }
-        public async Task Logout()
+        public async Task<IActionResult> CallApiUsingClientCredentials()
+        {
+            var tokenClient = new TokenClient("http://localhost:5000/connect/token", "mvc", "secret");
+            var tokenResponse = await tokenClient.RequestClientCredentialsAsync("api1");
+
+            var client = new HttpClient();
+            client.SetBearerToken(tokenResponse.AccessToken);
+            var content = await client.GetStringAsync("http://localhost:5001/identity");
+
+            ViewBag.Json = JArray.Parse(content).ToString();
+            return View("json");
+        }
+        public async Task<IActionResult> Logout()
         {
             await HttpContext.Authentication.SignOutAsync("Cookies");
-            await HttpContext.Authentication.SignOutAsync("oidc");
+            //var disco = await DiscoveryClient.GetAsync("http://localhost:5000");
+            return Redirect("/Home/Index");
         }
     }
 }

@@ -3,15 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.8
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer", "IdentityServer\IdentityServer.csproj", "{36D3F19C-628D-4DB7-9463-56DB468E8943}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer", "IdentityServer\IdentityServer.csproj", "{36D3F19C-628D-4DB7-9463-56DB468E8943}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiHost", "ApiHost\ApiHost.csproj", "{BAD973C2-6A2C-4AD4-870C-5832AB4053A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiHost", "ApiHost\ApiHost.csproj", "{BAD973C2-6A2C-4AD4-870C-5832AB4053A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleClient", "ConsoleClient\ConsoleClient.csproj", "{7050AF00-E8AF-4454-99E8-AA0D8DCEED27}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleClient", "ConsoleClient\ConsoleClient.csproj", "{7050AF00-E8AF-4454-99E8-AA0D8DCEED27}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCFRAMEWORKCLENT", "MVCFRAMEWORKCLENT\MVCFRAMEWORKCLENT.csproj", "{7B1E6C8F-D5B5-4DEB-951E-5FDC56B5610B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCCORECLIENT", "MVCCORECLIENT\MVCCORECLIENT.csproj", "{499B6A54-A6BE-4CCD-B2BF-96E95A45E38D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVCCORECLIENT", "MVCCORECLIENT\MVCCORECLIENT.csproj", "{499B6A54-A6BE-4CCD-B2BF-96E95A45E38D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServerWithBd", "IdentityServerWithBd\IdentityServerWithBd.csproj", "{043F7741-1136-4607-905E-C9ADF3128BFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCCOREClient2", "MVCCOREClient2\MVCCOREClient2.csproj", "{8CB7CE16-5452-4CE3-B479-9E0A6B4A23A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,14 @@ Global
 		{499B6A54-A6BE-4CCD-B2BF-96E95A45E38D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{499B6A54-A6BE-4CCD-B2BF-96E95A45E38D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{499B6A54-A6BE-4CCD-B2BF-96E95A45E38D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{043F7741-1136-4607-905E-C9ADF3128BFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{043F7741-1136-4607-905E-C9ADF3128BFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{043F7741-1136-4607-905E-C9ADF3128BFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{043F7741-1136-4607-905E-C9ADF3128BFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CB7CE16-5452-4CE3-B479-9E0A6B4A23A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CB7CE16-5452-4CE3-B479-9E0A6B4A23A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CB7CE16-5452-4CE3-B479-9E0A6B4A23A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CB7CE16-5452-4CE3-B479-9E0A6B4A23A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
